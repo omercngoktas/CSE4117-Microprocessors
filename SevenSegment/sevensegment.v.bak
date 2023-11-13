@@ -1,6 +1,0 @@
-module sevensegment(grounds, display);
-
-output reg [6:0] display;
-output reg [3:0] grounds;
-
-endmodule

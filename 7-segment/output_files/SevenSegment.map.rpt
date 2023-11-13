@@ -1,5 +1,5 @@
 Analysis & Synthesis report for SevenSegment
-Sat Nov 11 15:08:31 2023
+Mon Nov 13 21:04:50 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -13,10 +13,11 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -42,16 +43,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Nov 11 15:08:31 2023      ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 13 21:04:50 2023      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; SevenSegment                               ;
 ; Top-level Entity Name              ; SevenSegment                               ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 14                                         ;
-;     Total combinational functions  ; 14                                         ;
-;     Dedicated logic registers      ; 0                                          ;
-; Total registers                    ; 0                                          ;
-; Total pins                         ; 13                                         ;
+; Total logic elements               ; 111                                        ;
+;     Total combinational functions  ; 107                                        ;
+;     Dedicated logic registers      ; 55                                         ;
+; Total registers                    ; 55                                         ;
+; Total pins                         ; 14                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -171,28 +172,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 14        ;
+; Estimated Total logic elements              ; 111       ;
 ;                                             ;           ;
-; Total combinational functions               ; 14        ;
+; Total combinational functions               ; 107       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 8         ;
-;     -- 3 input functions                    ; 4         ;
-;     -- <=2 input functions                  ; 2         ;
+;     -- 4 input functions                    ; 28        ;
+;     -- 3 input functions                    ; 9         ;
+;     -- <=2 input functions                  ; 70        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 14        ;
-;     -- arithmetic mode                      ; 0         ;
+;     -- normal mode                          ; 65        ;
+;     -- arithmetic mode                      ; 42        ;
 ;                                             ;           ;
-; Total registers                             ; 0         ;
-;     -- Dedicated logic registers            ; 0         ;
+; Total registers                             ; 55        ;
+;     -- Dedicated logic registers            ; 55        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 13        ;
+; I/O pins                                    ; 14        ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
-; Maximum fan-out node                        ; data[0]~0 ;
-; Maximum fan-out                             ; 11        ;
-; Total fan-out                               ; 68        ;
-; Average fan-out                             ; 1.70      ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 49        ;
+; Total fan-out                               ; 415       ;
+; Average fan-out                             ; 2.18      ;
 +---------------------------------------------+-----------+
 
 
@@ -201,23 +202,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |SevenSegment              ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 13   ; 0            ; |SevenSegment       ; work         ;
+; |SevenSegment              ; 107 (107)         ; 55 (55)      ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |SevenSegment       ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; data[0]                                            ; rightButton         ; yes                    ;
-; data[1]                                            ; rightButton         ; yes                    ;
-; data[2]                                            ; rightButton         ; yes                    ;
-; data[3]                                            ; rightButton         ; yes                    ;
-; Number of user-specified and inferred latches = 4  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -225,14 +212,48 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 55    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 21    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; number[8]                               ; 2       ;
+; number[0]                               ; 3       ;
+; number[12]                              ; 2       ;
+; number[9]                               ; 2       ;
+; number[5]                               ; 2       ;
+; number[1]                               ; 2       ;
+; number[13]                              ; 2       ;
+; number[10]                              ; 2       ;
+; number[2]                               ; 2       ;
+; number[14]                              ; 2       ;
+; number[11]                              ; 2       ;
+; number[7]                               ; 2       ;
+; number[15]                              ; 2       ;
+; grounds[0]~reg0                         ; 2       ;
+; scanSpeed[1]                            ; 15      ;
+; scanSpeed[3]                            ; 4       ;
+; Total number of inverted registers = 16 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |SevenSegment|Mux1         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-------------------------------+
@@ -250,36 +271,29 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Sat Nov 11 15:08:31 2023
+    Info: Processing started: Mon Nov 13 21:04:49 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SevenSegment -c SevenSegment
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file sevensegment.v
     Info (12023): Found entity 1: SevenSegment
 Info (12127): Elaborating entity "SevenSegment" for the top level hierarchy
-Warning (10230): Verilog HDL assignment warning at SevenSegment.v(21): truncated value with size 32 to match size of target (4)
-Warning (10240): Verilog HDL Always Construct warning at SevenSegment.v(17): inferring latch(es) for variable "data", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "data[0]" at SevenSegment.v(17)
-Info (10041): Inferred latch for "data[1]" at SevenSegment.v(17)
-Info (10041): Inferred latch for "data[2]" at SevenSegment.v(17)
-Info (10041): Inferred latch for "data[3]" at SevenSegment.v(17)
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "grounds[0]" is stuck at GND
-    Warning (13410): Pin "grounds[1]" is stuck at GND
-    Warning (13410): Pin "grounds[2]" is stuck at GND
-    Warning (13410): Pin "grounds[3]" is stuck at GND
+Warning (10230): Verilog HDL assignment warning at SevenSegment.v(18): truncated value with size 32 to match size of target (26)
+Warning (10230): Verilog HDL assignment warning at SevenSegment.v(23): truncated value with size 32 to match size of target (2)
+Warning (10230): Verilog HDL assignment warning at SevenSegment.v(29): truncated value with size 32 to match size of target (16)
+Warning (10230): Verilog HDL assignment warning at SevenSegment.v(41): truncated value with size 32 to match size of target (5)
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer Mux0
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "leftButton"
-Info (21057): Implemented 27 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
+Info (21057): Implemented 125 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
     Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 14 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 10 warnings
+    Info (21061): Implemented 111 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 7 warnings
     Info: Peak virtual memory: 4618 megabytes
-    Info: Processing ended: Sat Nov 11 15:08:31 2023
-    Info: Elapsed time: 00:00:00
+    Info: Processing ended: Mon Nov 13 21:04:50 2023
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

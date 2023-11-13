@@ -1,5 +1,5 @@
 EDA Netlist Writer report for SevenSegment
-Sat Nov 11 15:08:42 2023
+Mon Nov 13 21:05:01 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sat Nov 11 15:08:42 2023 ;
+; EDA Netlist Writer Status ; Successful - Mon Nov 13 21:05:01 2023 ;
 ; Revision Name             ; SevenSegment                          ;
 ; Top-level Entity Name     ; SevenSegment                          ;
 ; Family                    ; Cyclone IV E                          ;
@@ -88,7 +88,7 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Sat Nov 11 15:08:41 2023
+    Info: Processing started: Mon Nov 13 21:05:00 2023
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off SevenSegment -c SevenSegment
 Info (204019): Generated file SevenSegment_6_1200mv_85c_slow.vho in folder "E:/github/CSE4117-Microprocessors/7-segment/simulation/modelsim/" for EDA simulation tool
 Info (204019): Generated file SevenSegment_6_1200mv_0c_slow.vho in folder "E:/github/CSE4117-Microprocessors/7-segment/simulation/modelsim/" for EDA simulation tool
@@ -99,8 +99,8 @@ Info (204019): Generated file SevenSegment_6_1200mv_0c_vhd_slow.sdo in folder "E
 Info (204019): Generated file SevenSegment_min_1200mv_0c_vhd_fast.sdo in folder "E:/github/CSE4117-Microprocessors/7-segment/simulation/modelsim/" for EDA simulation tool
 Info (204019): Generated file SevenSegment_vhd.sdo in folder "E:/github/CSE4117-Microprocessors/7-segment/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4549 megabytes
-    Info: Processing ended: Sat Nov 11 15:08:42 2023
+    Info: Peak virtual memory: 4544 megabytes
+    Info: Processing ended: Mon Nov 13 21:05:01 2023
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:00
 

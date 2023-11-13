@@ -54,19 +54,20 @@ set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_location_assignment PIN_D5 -to segmentBits[0]
-set_location_assignment PIN_A6 -to segmentBits[1]
-set_location_assignment PIN_D6 -to segmentBits[2]
-set_location_assignment PIN_C6 -to segmentBits[3]
-set_location_assignment PIN_E6 -to segmentBits[4]
-set_location_assignment PIN_D8 -to segmentBits[5]
-set_location_assignment PIN_F8 -to segmentBits[6]
+set_location_assignment PIN_E8 -to segmentBits[0]
+set_location_assignment PIN_E7 -to segmentBits[1]
+set_location_assignment PIN_C8 -to segmentBits[2]
+set_location_assignment PIN_A7 -to segmentBits[3]
+set_location_assignment PIN_B7 -to segmentBits[4]
+set_location_assignment PIN_B6 -to segmentBits[5]
+set_location_assignment PIN_A5 -to segmentBits[6]
 set_global_assignment -name CDF_FILE output_files/Chain2.cdf
 set_global_assignment -name CDF_FILE output_files/Chain3.cdf
-set_location_assignment PIN_B5 -to grounds[0]
-set_location_assignment PIN_B4 -to grounds[1]
-set_location_assignment PIN_A3 -to grounds[2]
-set_location_assignment PIN_C3 -to grounds[3]
+set_location_assignment PIN_B4 -to grounds[0]
+set_location_assignment PIN_A3 -to grounds[1]
+set_location_assignment PIN_C3 -to grounds[2]
+set_location_assignment PIN_D3 -to grounds[3]
 set_location_assignment PIN_E1 -to leftButton
 set_location_assignment PIN_J15 -to rightButton
+set_location_assignment PIN_R8 -to clk
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
