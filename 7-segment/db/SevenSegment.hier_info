@@ -1,0 +1,19 @@
+|SevenSegment
+segmentBits[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+grounds[0] <= <GND>
+grounds[1] <= <GND>
+grounds[2] <= <GND>
+grounds[3] <= <GND>
+leftButton => ~NO_FANOUT~
+rightButton => data[1].LATCH_ENABLE
+rightButton => data[0].LATCH_ENABLE
+rightButton => data[2].LATCH_ENABLE
+rightButton => data[3].LATCH_ENABLE
+
+

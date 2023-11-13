@@ -1,0 +1,14 @@
+|sevensegment
+inputNumber[0] => Decoder0.IN3
+inputNumber[1] => Decoder0.IN2
+inputNumber[2] => Decoder0.IN1
+inputNumber[3] => Decoder0.IN0
+segmentBits[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[5] <= convertToSevenSegment.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[6] <= convertToSevenSegment.DB_MAX_OUTPUT_PORT_TYPE
+
+
