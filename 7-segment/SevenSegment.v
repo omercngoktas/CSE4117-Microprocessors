@@ -38,10 +38,15 @@ always @(posedge clk1[scanSpeed])
  always @(posedge clk) begin
     if (rightButton) begin
       if (!rightButtonPrev) begin
-        scanSpeed <= scanSpeed + 3;
-        if (scanSpeed > 25) begin
-          scanSpeed <= 0;
+        if (scanSpeed == 19) begin
+          scanSpeed <= 25;
         end
+		  if (scanSpeed == 25) begin
+			scanSpeed <= 15;
+			end
+			if(scanSpeed == 15) begin
+			scanSpeed <= 19;
+			end
         rightButtonPrev <= 1;
       end
     end else begin
@@ -84,7 +89,7 @@ initial begin
 	grounds = 4'b0001;
 	clk1 = 0;
 	count = 0;
-	scanSpeed = 10;
+	scanSpeed = 25;
 	leftButtonPrev = 1'b0;
 	rightButtonPrev = 1'b0;
 end

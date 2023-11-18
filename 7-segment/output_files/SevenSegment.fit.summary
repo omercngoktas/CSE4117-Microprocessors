@@ -1,14 +1,14 @@
-Fitter Status : Successful - Mon Nov 13 21:04:55 2023
+Fitter Status : Successful - Sat Nov 18 20:14:02 2023
 Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Web Edition
 Revision Name : SevenSegment
 Top-level Entity Name : SevenSegment
 Family : Cyclone IV E
 Device : EP4CE22F17C6
 Timing Models : Final
-Total logic elements : 109 / 22,320 ( < 1 % )
-    Total combinational functions : 107 / 22,320 ( < 1 % )
-    Dedicated logic registers : 55 / 22,320 ( < 1 % )
-Total registers : 55
+Total logic elements : 99 / 22,320 ( < 1 % )
+    Total combinational functions : 97 / 22,320 ( < 1 % )
+    Dedicated logic registers : 54 / 22,320 ( < 1 % )
+Total registers : 54
 Total pins : 14 / 154 ( 9 % )
 Total virtual pins : 0
 Total memory bits : 0 / 608,256 ( 0 % )
