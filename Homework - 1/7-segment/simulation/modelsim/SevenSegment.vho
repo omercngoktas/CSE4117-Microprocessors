@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus II 64-Bit"
 -- VERSION "Version 13.1.0 Build 162 10/23/2013 SJ Web Edition"
 
--- DATE "11/18/2023 20:14:08"
+-- DATE "01/01/2024 18:00:14"
 
 -- 
 -- Device: Altera EP4CE22F17C6 Package FBGA256
@@ -35,8 +35,8 @@ USE IEEE.STD_LOGIC_1164.ALL;
 
 ENTITY 	SevenSegment IS
     PORT (
-	segmentBits : OUT std_logic_vector(6 DOWNTO 0);
-	grounds : OUT std_logic_vector(3 DOWNTO 0);
+	segmentBits : BUFFER std_logic_vector(6 DOWNTO 0);
+	grounds : BUFFER std_logic_vector(3 DOWNTO 0);
 	clk : IN std_logic;
 	leftButton : IN std_logic;
 	rightButton : IN std_logic

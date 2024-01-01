@@ -1,15 +1,15 @@
 |SevenSegment
-segmentBits[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
-segmentBits[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
-segmentBits[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-segmentBits[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
-segmentBits[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
-segmentBits[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
-segmentBits[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
-grounds[0] <= grounds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-grounds[1] <= grounds[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-grounds[2] <= grounds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-grounds[3] <= grounds[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[0] << WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[1] << WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[2] << WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[3] << WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[4] << WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[5] << WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segmentBits[6] << WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+grounds[0] << grounds[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+grounds[1] << grounds[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+grounds[2] << grounds[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+grounds[3] << grounds[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 clk => rightButtonPrev.CLK
 clk => scanSpeed[0].CLK
 clk => scanSpeed[1].CLK
