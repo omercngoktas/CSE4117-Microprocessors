@@ -171,14 +171,14 @@ void main()
                 }
                 else if (strcmp(token,"and")==0)
                 {
-                    //to be added
+                    /*//to be added
                     // alucode: 010
                     op1 = strtok(NULL, "\n\t\r "); // dst register
                     op2 = strtok(NULL, "\n\t\r ");
                     op3 = strtok(NULL, "\n\t\r ");
                     chch = (op1[0] - 48) | ((op2[0] - 48) << 6) | ((op3[0] - 48) << 3);
                     program[counter]= 0x7400+((chch)&0x01ff); 
-                    counter++;
+                    counter++;*/
                 }
                 else if (strcmp(token,"or")==0)
                 {

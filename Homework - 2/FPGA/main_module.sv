@@ -2,8 +2,8 @@ module main_module (
 		input clk,
 
 		//---input from switchboard
-		input [7:0] switches,            //input from 16-bit switchboard
-		input enter_key,               //enter button
+		input [7:0] switches,   // sol buton         //input from 16-bit switchboard
+		input enter_key,         //sag buton       //enter button
 
 		//---output to seven segment display
 		output logic [3:0] grounds,
