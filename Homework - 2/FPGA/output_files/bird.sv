@@ -37,7 +37,6 @@ always_ff @(posedge clk)
     case(state) 
         FETCH: 
             begin
-				$display("Su an burada ldi 2----------------------------------------------------------------------------------------");
                 if ( data_in[15:12]==JZ) // if instruction is jz  
                     if (zeroflag)  //and if last bit of 7th register is 0 then jump to jump instruction state
                         state <= JMP;

@@ -2,7 +2,7 @@ module main_module (
 		input clk,
 
 		//---input from switchboard
-		input [3:0] switches,            //input from 16-bit switchboard
+		input [7:0] switches,            //input from 16-bit switchboard
 		input enter_key,               //enter button
 
 		//---output to seven segment display
@@ -42,7 +42,7 @@ sevensegment ss1 (
 
 switchbank_poll sw1(
 	.clk(clk),
-	.switches(switches[3:0]), // switches'ın türünü düzeltilmiş haliyle belirtin
+	.switches(switches), // switches'ın türünü düzeltilmiş haliyle belirtin
 	.enter_key(enter_key),
 	.a0(address[0]),
 	.ack(ackx),
@@ -64,20 +64,17 @@ always_comb
 		ackx = 0;
 		if ((BEGINMEM<=address) && (address<=ENDMEM))
 			begin
-				$display("Su an burada----------------------------------------------------------------------------------------");
 				data_in=memory[address];
 			end
 			
 		else if ((address==SWITCHBANK_STATUS)|| (address==SWITCHBANK_DATA))
 			begin
-				$display("Su an burada 1----------------------------------------------------------------------------------------");
 				ackx = 1;              //with appropriate a0 resets the ready flag    
 				data_in = switch_in;   //a0 will determine if we read data or status
 			end
 			
 		else
 			begin
-				$display("Su an burada 2----------------------------------------------------------------------------------------");
 				data_in=16'hf345; //any number
 			end
 	end
@@ -90,11 +87,13 @@ always_ff @(posedge clk) //data output port of the cpu
 				if ((BEGINMEM<=address) && (address<=ENDMEM))
 					begin
 						memory[address]<=data_out;
+						//ss7_out <= 16'h9ab2;
 					end
 					
 				else if (SEVENSEG==address) 
 					begin
 							ss7_out<=data_out;
+							  //ss7_out <= 16'h4321;
 					end
 			end
 	end
