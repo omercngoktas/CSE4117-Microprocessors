@@ -9,35 +9,22 @@ module switchbank_poll(
 	output data_out
 );
   
-reg [1:0] pressed_button_one;// isim degistirdim @talha
-reg [1:0] pressed_button_two;   // Ekledim @talha
-reg [15:0] status_reg_for_button_one;// isim degistirdim @talha
-reg [15:0] status_reg_for_button_two;// Ekledim @talha
-reg [15:0] data_reg;   
+reg [1:0] pressed;   // Ekledim
+reg [15:0] status_reg;   // Ekledim
+reg [15:0] data_reg;   // Ekledim
 
 always_ff @(posedge clk)
 	begin
-		pressed_button_one <= {pressed_button_one[0], enter_key};// isim degistirdim @talha
-		if ((pressed_button_one == 2'b10) && (status_reg_for_button_one[0] == 1'b0))// isim degistirdim @talha
+		pressed <= {pressed[0], enter_key};
+		if ((pressed == 2'b10) && (status_reg[0] == 1'b0))
 			begin
-				status_reg_for_button_one  <= 16'b1;// isim degistirdim @talha
+				status_reg  <= 16'b1;
 				data_reg    <= data_in;
 			end
-			
-		pressed_button_two <= {pressed_button_one[0], enter_key};// Ekledim @talha
-		else if ((pressed_button_two == 2'b10) && (status_reg_for_button_two[0] == 1'b0))// Ekledim @talha
-			begin
-				status_reg_for_button_two  <= 16'b1;// Ekledim @talha
-				data_reg    <= data_in;// Ekledim @talha
-			end	
-		
 		else if (ack & ~a0)
 			begin
-				status_reg_for_button_one <= 16'b0;// isim degistirdim @talha
-				status_reg_for_button_two <= 16'b0;// Ekledim @talha
+				status_reg <= 16'b0;
 			end
-			
-		
 	end
 
 always_comb
