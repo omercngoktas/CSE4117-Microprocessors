@@ -3,16 +3,16 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -9.826
-TNS   : -17316.734
+Slack : -10.327
+TNS   : -18146.525
 
 Type  : Slow 1200mV 85C Model Setup 'sevensegment:ss1|clk1[15]'
-Slack : 0.184
+Slack : 0.183
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : -0.098
-TNS   : -0.098
+Slack : -0.039
+TNS   : -0.039
 
 Type  : Slow 1200mV 85C Model Hold 'sevensegment:ss1|clk1[15]'
 Slack : 0.359
@@ -20,55 +20,55 @@ TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -2259.000
+TNS   : -2292.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sevensegment:ss1|clk1[15]'
 Slack : -1.000
 TNS   : -6.000
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -8.719
-TNS   : -15364.385
+Slack : -9.266
+TNS   : -16154.771
 
 Type  : Slow 1200mV 0C Model Setup 'sevensegment:ss1|clk1[15]'
-Slack : 0.265
+Slack : 0.267
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : -0.062
-TNS   : -0.062
+Slack : -0.004
+TNS   : -0.004
 
 Type  : Slow 1200mV 0C Model Hold 'sevensegment:ss1|clk1[15]'
-Slack : 0.312
+Slack : 0.313
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -2259.000
+TNS   : -2292.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sevensegment:ss1|clk1[15]'
 Slack : -1.000
 TNS   : -6.000
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -5.322
-TNS   : -9022.644
+Slack : -5.654
+TNS   : -9828.027
 
 Type  : Fast 1200mV 0C Model Setup 'sevensegment:ss1|clk1[15]'
 Slack : 0.538
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : -0.063
-TNS   : -0.063
+Slack : -0.037
+TNS   : -0.037
 
 Type  : Fast 1200mV 0C Model Hold 'sevensegment:ss1|clk1[15]'
-Slack : 0.187
+Slack : 0.188
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -2397.114
+TNS   : -2426.538
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sevensegment:ss1|clk1[15]'
 Slack : -1.000

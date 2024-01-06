@@ -48,6 +48,15 @@ switchbank  lb_sw1(
 	.data_out(lb_switch_in) // burada devicedan okunan deger veriliyor statusreg ya da datareg olarak dataout guncellenecek
 );
 
+switchbank  rb_sw1(
+	.clk(clk),
+	.switches(input_data),
+	.enter_key(right_button),
+	.a0(address[0]),
+	.ack(ackx),
+	.data_out(rb_switch_in) // burada devicedan okunan deger veriliyor statusreg ya da datareg olarak dataout guncellenecek
+);
+
 bird br1(
 	.clk(clk),
 	.data_in(data_in),
