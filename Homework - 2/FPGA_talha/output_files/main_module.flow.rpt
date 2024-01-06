@@ -1,5 +1,5 @@
 Flow report for main_module
-Tue Jan 02 16:52:11 2024
+Sat Jan 06 12:32:04 2024
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Tue Jan 02 16:52:11 2024      ;
+; Flow Status                        ; Successful - Sat Jan 06 12:32:04 2024      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; main_module                                ;
 ; Top-level Entity Name              ; main_module                                ;
 ; Family                             ; Cyclone IV E                               ;
 ; Device                             ; EP4CE22F17C6                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 3,060 / 22,320 ( 14 % )                    ;
-;     Total combinational functions  ; 2,085 / 22,320 ( 9 % )                     ;
-;     Dedicated logic registers      ; 2,247 / 22,320 ( 10 % )                    ;
-; Total registers                    ; 2247                                       ;
+; Total logic elements               ; 3,106 / 22,320 ( 14 % )                    ;
+;     Total combinational functions  ; 2,122 / 22,320 ( 10 % )                    ;
+;     Dedicated logic registers      ; 2,278 / 22,320 ( 10 % )                    ;
+; Total registers                    ; 2278                                       ;
 ; Total pins                         ; 13 / 154 ( 8 % )                           ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0 / 608,256 ( 0 % )                        ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/02/2024 16:51:27 ;
+; Start date & time ; 01/06/2024 12:31:28 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; main_module         ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 193675815739468.170420348725508 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 27214211805242.170453348819452  ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl               ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog) ; <None>        ; --          ; --             ;
 ; ENABLE_OCT_DONE                     ; Off                             ; On            ; --          ; --             ;
@@ -94,12 +94,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:06     ; 1.0                     ; 4674 MB             ; 00:00:05                           ;
-; Fitter                    ; 00:00:24     ; 3.0                     ; 5615 MB             ; 00:00:20                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 4611 MB             ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:03     ; 3.3                     ; 4793 MB             ; 00:00:03                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4577 MB             ; 00:00:03                           ;
-; Total                     ; 00:00:37     ; --                      ; --                  ; 00:00:32                           ;
+; Analysis & Synthesis      ; 00:00:04     ; 1.0                     ; 4623 MB             ; 00:00:04                           ;
+; Fitter                    ; 00:00:21     ; 1.0                     ; 5045 MB             ; 00:00:20                           ;
+; Assembler                 ; 00:00:02     ; 1.0                     ; 4593 MB             ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 4689 MB             ; 00:00:03                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 4571 MB             ; 00:00:02                           ;
+; Total                     ; 00:00:32     ; --                      ; --                  ; 00:00:30                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -108,11 +108,11 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-S96SREN  ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; DESKTOP-S96SREN  ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; DESKTOP-S96SREN  ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-S96SREN  ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-S96SREN  ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; DESKTOP-U55UF6Q  ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; DESKTOP-U55UF6Q  ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; DESKTOP-U55UF6Q  ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; DESKTOP-U55UF6Q  ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; DESKTOP-U55UF6Q  ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

@@ -3,16 +3,16 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -9.656
-TNS   : -17274.168
+Slack : -9.285
+TNS   : -16442.696
 
 Type  : Slow 1200mV 85C Model Setup 'sevensegment:ss1|clk1[15]'
-Slack : 0.186
+Slack : 0.188
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : -0.025
-TNS   : -0.025
+Slack : -0.066
+TNS   : -0.066
 
 Type  : Slow 1200mV 85C Model Hold 'sevensegment:ss1|clk1[15]'
 Slack : 0.359
@@ -20,47 +20,47 @@ TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -2244.000
+TNS   : -2275.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'sevensegment:ss1|clk1[15]'
 Slack : -1.000
 TNS   : -6.000
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -8.680
-TNS   : -15335.279
+Slack : -8.286
+TNS   : -14635.682
 
 Type  : Slow 1200mV 0C Model Setup 'sevensegment:ss1|clk1[15]'
-Slack : 0.270
+Slack : 0.271
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : 0.003
-TNS   : 0.000
+Slack : -0.032
+TNS   : -0.032
 
 Type  : Slow 1200mV 0C Model Hold 'sevensegment:ss1|clk1[15]'
-Slack : 0.312
+Slack : 0.313
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -2244.000
+TNS   : -2275.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'sevensegment:ss1|clk1[15]'
 Slack : -1.000
 TNS   : -6.000
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -5.319
-TNS   : -9062.686
+Slack : -5.115
+TNS   : -8533.825
 
 Type  : Fast 1200mV 0C Model Setup 'sevensegment:ss1|clk1[15]'
-Slack : 0.541
+Slack : 0.545
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : -0.016
-TNS   : -0.016
+Slack : -0.044
+TNS   : -0.044
 
 Type  : Fast 1200mV 0C Model Hold 'sevensegment:ss1|clk1[15]'
 Slack : 0.188
@@ -68,7 +68,7 @@ TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -2382.561
+TNS   : -2417.940
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'sevensegment:ss1|clk1[15]'
 Slack : -1.000
