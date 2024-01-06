@@ -1,4 +1,9 @@
-module sevensegment( din, grounds, display, clk);
+module sevensegment(
+	din,
+	grounds,
+	display, 
+	clk
+);
 
 input logic [15:0] din;
 output logic [3:0] grounds;

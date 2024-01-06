@@ -1,19 +1,20 @@
 module main_module (
 	input clk,
-	input left_button,
-	input right_button,
+	/*input left_button,
+	input right_button,*/
+	input enter_key,
 	//---output to seven segment display
 	output logic [3:0] grounds,
 	output logic [6:0] display
 );
 
 //====memory map is defined here====
-localparam BEGINMEM=12'h000;
-localparam ENDMEM=12'h1ff;
-localparam SWITCHBANK_DATA=12'h900;  
-localparam LB_SWITCHBANK_STATUS=12'h901;
-localparam RB_SWITCHBANK_STATUS=12'h903;
-localparam SEVENSEG=12'hb00;
+localparam
+	BEGINMEM=12'h000,
+	ENDMEM=12'h1ff,
+	SWITCHBANK_DATA=12'h900,
+	SWITCHBANK_STATUS=12'h901,
+	SEVENSEG=12'hb00;
 
 //  memory chip
 logic [15:0] memory [0:127];
@@ -26,29 +27,30 @@ logic memwt; // memory'e bir sey yazacagimiz ya da push-call islemlerinden biris
 
 //======ss7 and switchbank=====
 logic [15:0] ss7_out;
-logic [15:0] input_data;
+logic [15:0] switches_in;
+logic [15:0] switch_in;
 logic [15:0] lb_switch_in;
 logic [15:0] rb_switch_in;
 logic ackx;
 
 //=====components==================
-sevensegment ss1(
+sevensegment ss1 (
   .din(ss7_out),
   .grounds(grounds),
   .display(display),
   .clk(clk)
 );
 
-switchbank  lb_sw1(
+switchbank  sw1 (
 	.clk(clk),
-	.switches(input_data),
-	.enter_key(left_button),
+	.switches(switches_in),
+	.enter_key(enter_key),
 	.a0(address[0]),
 	.ack(ackx),
-	.data_out(lb_switch_in) // burada devicedan okunan deger veriliyor statusreg ya da datareg olarak dataout guncellenecek
+	.data_out(switch_in) // burada devicedan okunan deger veriliyor statusreg ya da datareg olarak dataout guncellenecek
 );
 
-bird br1(
+bird br1 (
 	.clk(clk),
 	.data_in(data_in),
 	.data_out(data_out),
@@ -67,22 +69,10 @@ always_comb
 			end
 			
 		// address STATUS ya da DATA'ya esit ise (device'in status ya da data adresiyse)
-		else if (address == LB_SWITCHBANK_STATUS)
+		else if ((address == SWITCHBANK_STATUS) || (address == SWITCHBANK_DATA))
 			begin
 				ackx = 1;              //with appropriate a0 resets the ready flag    
-				data_in = lb_switch_in;   //a0 will determine if we read data or status
-			end
-			
-		else if (address == RB_SWITCHBANK_STATUS)
-			begin
-				ackx = 1;              //with appropriate a0 resets the ready flag    
-				data_in = rb_switch_in;   //a0 will determine if we read data or status
-			end
-			
-		else if (address == SWITCHBANK_DATA)
-			begin
-				ackx = 1;              //with appropriate a0 resets the ready flag    
-				data_in = input_data;   //a0 will determine if we read data or status
+				data_in = switch_in;   //a0 will determine if we read data or status
 			end
 
 		else
@@ -103,7 +93,7 @@ always_ff @(posedge clk) //data output port of the cpu
 
 				else if (SWITCHBANK_DATA == address)
 					begin
-						input_data <= data_out;
+						switches_in <= data_out;
 					end
 
 				else if (SEVENSEG == address) // uretilen address sevenseg addressi haliyle data sevensegmente bastirilacak
@@ -116,7 +106,7 @@ always_ff @(posedge clk) //data output port of the cpu
 initial 
 	begin
 		ss7_out=16'h0001;
-		input_data=16'h0001;
+		switches_in=16'h0001;
 		$readmemh("ram.dat", memory);
 	end
 	 

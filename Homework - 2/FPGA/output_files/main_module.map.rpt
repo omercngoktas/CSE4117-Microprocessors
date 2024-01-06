@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main_module
-Sat Jan 06 13:30:12 2024
+Sat Jan 06 17:07:01 2024
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -14,11 +14,12 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +45,16 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jan 06 13:30:12 2024      ;
+; Analysis & Synthesis Status        ; Successful - Sat Jan 06 17:07:01 2024      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; main_module                                ;
 ; Top-level Entity Name              ; main_module                                ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 4,224                                      ;
-;     Total combinational functions  ; 2,109                                      ;
-;     Dedicated logic registers      ; 2,278                                      ;
-; Total registers                    ; 2278                                       ;
-; Total pins                         ; 13                                         ;
+; Total logic elements               ; 4,215                                      ;
+;     Total combinational functions  ; 2,115                                      ;
+;     Dedicated logic registers      ; 2,262                                      ;
+; Total registers                    ; 2262                                       ;
+; Total pins                         ; 14                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
 ; Embedded Multiplier 9-bit elements ; 0                                          ;
@@ -177,55 +178,72 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 4,224     ;
+; Estimated Total logic elements              ; 4,215     ;
 ;                                             ;           ;
-; Total combinational functions               ; 2109      ;
+; Total combinational functions               ; 2115      ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1748      ;
-;     -- 3 input functions                    ; 220       ;
-;     -- <=2 input functions                  ; 141       ;
+;     -- 4 input functions                    ; 1776      ;
+;     -- 3 input functions                    ; 215       ;
+;     -- <=2 input functions                  ; 124       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2042      ;
+;     -- normal mode                          ; 2048      ;
 ;     -- arithmetic mode                      ; 67        ;
 ;                                             ;           ;
-; Total registers                             ; 2278      ;
-;     -- Dedicated logic registers            ; 2278      ;
+; Total registers                             ; 2262      ;
+;     -- Dedicated logic registers            ; 2262      ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 13        ;
+; I/O pins                                    ; 14        ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 2272      ;
-; Total fan-out                               ; 14747     ;
-; Average fan-out                             ; 3.34      ;
+; Maximum fan-out                             ; 2256      ;
+; Total fan-out                               ; 14764     ;
+; Average fan-out                             ; 3.35      ;
 +---------------------------------------------+-----------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                   ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name           ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+--------------+
-; |main_module               ; 2109 (1611)       ; 2278 (2080)  ; 0           ; 0            ; 0       ; 0         ; 13   ; 0            ; |main_module                  ; work         ;
-;    |bird:br1|              ; 460 (460)         ; 157 (157)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_module|bird:br1         ; work         ;
-;    |sevensegment:ss1|      ; 35 (35)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_module|sevensegment:ss1 ; work         ;
-;    |switchbank:sw1|        ; 3 (3)             ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_module|switchbank:sw1   ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+--------------+
+; |main_module               ; 2115 (1615)       ; 2262 (2080)  ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |main_module                   ; work         ;
+;    |bird:br1|              ; 464 (464)         ; 157 (157)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_module|bird:br1          ; work         ;
+;    |sevensegment:ss1|      ; 35 (35)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_module|sevensegment:ss1  ; work         ;
+;    |switchbank:lb_sw1|     ; 1 (1)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_module|switchbank:lb_sw1 ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                ;
-+----------------------------------------+------------------------------------------+
-; Register name                          ; Reason for Removal                       ;
-+----------------------------------------+------------------------------------------+
-; bird:br1|state[4]                      ; Stuck at GND due to stuck port data_in   ;
-; switchbank:sw1|status_reg[2..15]       ; Merged with switchbank:sw1|status_reg[1] ;
-; switchbank:sw1|status_reg[1]           ; Stuck at GND due to stuck port data_in   ;
-; sevensegment:ss1|clk1[16..25]          ; Lost fanout                              ;
-; Total Number of Removed Registers = 26 ;                                          ;
-+----------------------------------------+------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                   ;
++----------------------------------------+---------------------------------------------+
+; Register name                          ; Reason for Removal                          ;
++----------------------------------------+---------------------------------------------+
+; bird:br1|state[4]                      ; Stuck at GND due to stuck port data_in      ;
+; switchbank:lb_sw1|status_reg[2..15]    ; Merged with switchbank:lb_sw1|status_reg[1] ;
+; switchbank:lb_sw1|status_reg[1]        ; Stuck at GND due to stuck port data_in      ;
+; switchbank:lb_sw1|data_reg[0..15]      ; Lost fanout                                 ;
+; sevensegment:ss1|clk1[16..25]          ; Lost fanout                                 ;
+; Total Number of Removed Registers = 42 ;                                             ;
++----------------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                     ;
++-------------------+---------------------------+-----------------------------------------------------------------+
+; Register name     ; Reason for Removal        ; Registers Removed due to This Register                          ;
++-------------------+---------------------------+-----------------------------------------------------------------+
+; bird:br1|state[4] ; Stuck at GND              ; switchbank:lb_sw1|data_reg[6], switchbank:lb_sw1|data_reg[7],   ;
+;                   ; due to stuck port data_in ; switchbank:lb_sw1|data_reg[8], switchbank:lb_sw1|data_reg[12],  ;
+;                   ;                           ; switchbank:lb_sw1|data_reg[13], switchbank:lb_sw1|data_reg[14], ;
+;                   ;                           ; switchbank:lb_sw1|data_reg[15], switchbank:lb_sw1|data_reg[3],  ;
+;                   ;                           ; switchbank:lb_sw1|data_reg[4], switchbank:lb_sw1|data_reg[11],  ;
+;                   ;                           ; switchbank:lb_sw1|data_reg[5], switchbank:lb_sw1|data_reg[9],   ;
+;                   ;                           ; switchbank:lb_sw1|data_reg[1], switchbank:lb_sw1|data_reg[2],   ;
+;                   ;                           ; switchbank:lb_sw1|data_reg[10], switchbank:lb_sw1|data_reg[0]   ;
++-------------------+---------------------------+-----------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -233,12 +251,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2278  ;
+; Total registers                              ; 2262  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 28    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2248  ;
+; Number of registers using Clock Enable       ; 2232  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -250,7 +268,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 ; sevensegment:ss1|grounds[0]            ; 2       ;
 ; ss7_out[0]                             ; 1       ;
-; switches_in[0]                         ; 1       ;
+; input_data[0]                          ; 1       ;
 ; Total number of inverted registers = 3 ;         ;
 +----------------------------------------+---------+
 
@@ -262,24 +280,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
 ; 17:1               ; 2 bits    ; 22 LEs        ; 12 LEs               ; 10 LEs                 ; Yes        ; |main_module|bird:br1|state[3]       ;
 ; 17:1               ; 2 bits    ; 22 LEs        ; 14 LEs               ; 8 LEs                  ; Yes        ; |main_module|bird:br1|state[0]       ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 16 LEs               ; 144 LEs                ; Yes        ; |main_module|bird:br1|regbank[6][9]  ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 16 LEs               ; 144 LEs                ; Yes        ; |main_module|bird:br1|regbank[5][9]  ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 16 LEs               ; 144 LEs                ; Yes        ; |main_module|bird:br1|regbank[6][1]  ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 16 LEs               ; 144 LEs                ; Yes        ; |main_module|bird:br1|regbank[5][1]  ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 16 LEs               ; 144 LEs                ; Yes        ; |main_module|bird:br1|regbank[4][6]  ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 16 LEs               ; 144 LEs                ; Yes        ; |main_module|bird:br1|regbank[3][15] ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 16 LEs               ; 144 LEs                ; Yes        ; |main_module|bird:br1|regbank[2][7]  ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 16 LEs               ; 144 LEs                ; Yes        ; |main_module|bird:br1|regbank[1][1]  ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 16 LEs               ; 144 LEs                ; Yes        ; |main_module|bird:br1|regbank[0][13] ;
-; 11:1               ; 4 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |main_module|bird:br1|regbank[7][14] ;
-; 10:1               ; 12 bits   ; 72 LEs        ; 24 LEs               ; 48 LEs                 ; Yes        ; |main_module|bird:br1|pc[7]          ;
-; 11:1               ; 12 bits   ; 84 LEs        ; 24 LEs               ; 60 LEs                 ; Yes        ; |main_module|bird:br1|regbank[7][0]  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |main_module|sevensegment:ss1|Mux1   ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |main_module|bird:br1|Mux29          ;
-; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |main_module|bird:br1|Mux26          ;
-; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |main_module|data_in[4]              ;
-; 12:1               ; 15 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; No         ; |main_module|bird:br1|Mux75          ;
+; 11:1               ; 4 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |main_module|bird:br1|regbank[7][15] ;
+; 10:1               ; 12 bits   ; 72 LEs        ; 24 LEs               ; 48 LEs                 ; Yes        ; |main_module|bird:br1|pc[0]          ;
+; 11:1               ; 12 bits   ; 84 LEs        ; 24 LEs               ; 60 LEs                 ; Yes        ; |main_module|bird:br1|regbank[7][11] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |main_module|sevensegment:ss1|Mux0   ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |main_module|bird:br1|Mux38          ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |main_module|bird:br1|Mux45          ;
+; 6:1                ; 15 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; No         ; |main_module|data_in[11]             ;
+; 12:1               ; 15 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; No         ; |main_module|bird:br1|Mux65          ;
 ; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |main_module|bird:br1|Add4           ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |main_module|bird:br1|Add4           ;
-; 7:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |main_module|bird:br1|Selector131    ;
+; 7:1                ; 12 bits   ; 48 LEs        ; 24 LEs               ; 24 LEs                 ; No         ; |main_module|bird:br1|Selector128    ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; No         ; |main_module|bird:br1|Add4           ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |main_module|bird:br1|Add4           ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
@@ -290,7 +308,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -300,7 +318,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Sat Jan 06 13:30:08 2024
+    Info: Processing started: Sat Jan 06 17:06:56 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off main_module -c main_module
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file main_module.sv
@@ -313,11 +331,13 @@ Info (12021): Found 1 design units, including 1 entities, in source file switchb
     Info (12023): Found entity 1: switchbank
 Warning (10236): Verilog HDL Implicit Net warning at switchbank.sv(45): created implicit net for "ack_sw"
 Info (12127): Elaborating entity "main_module" for the top level hierarchy
-Warning (10850): Verilog HDL warning at main_module.sv(108): number of words (18) in memory file does not match the number of elements in the address range [0:127]
+Warning (10858): Verilog HDL warning at main_module.sv(31): object rb_switch_in used but never assigned
+Warning (10850): Verilog HDL warning at main_module.sv(120): number of words (18) in memory file does not match the number of elements in the address range [0:127]
+Warning (10030): Net "rb_switch_in" at main_module.sv(31) has no driver or initial value, using a default initial value '0'
 Info (12128): Elaborating entity "sevensegment" for hierarchy "sevensegment:ss1"
-Warning (10230): Verilog HDL assignment warning at sevensegment.sv(15): truncated value with size 32 to match size of target (2)
-Warning (10230): Verilog HDL assignment warning at sevensegment.sv(19): truncated value with size 32 to match size of target (26)
-Info (12128): Elaborating entity "switchbank" for hierarchy "switchbank:sw1"
+Warning (10230): Verilog HDL assignment warning at sevensegment.sv(20): truncated value with size 32 to match size of target (2)
+Warning (10230): Verilog HDL assignment warning at sevensegment.sv(24): truncated value with size 32 to match size of target (26)
+Info (12128): Elaborating entity "switchbank" for hierarchy "switchbank:lb_sw1"
 Warning (10036): Verilog HDL or VHDL warning at switchbank.sv(45): object "ack_sw" assigned a value but never read
 Info (12128): Elaborating entity "bird" for hierarchy "bird:br1"
 Warning (10230): Verilog HDL assignment warning at bird.sv(48): truncated value with size 32 to match size of target (12)
@@ -332,17 +352,19 @@ Info (276014): Found 1 instances of uninferred RAM logic
     Info (276007): RAM logic "memory" is uninferred due to asynchronous read logic
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "E:/github/CSE4117-Microprocessors/Homework - 2/FPGA/db/main_module.ram0_main_module_7115dfaa.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 10 registers lost all their fanouts during netlist optimizations.
+Info (17049): 26 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4281 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "right_button"
+Info (21057): Implemented 4273 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
     Info (21059): Implemented 11 output pins
-    Info (21061): Implemented 4268 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 15 warnings
-    Info: Peak virtual memory: 4638 megabytes
-    Info: Processing ended: Sat Jan 06 13:30:12 2024
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:04
+    Info (21061): Implemented 4259 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 19 warnings
+    Info: Peak virtual memory: 4634 megabytes
+    Info: Processing ended: Sat Jan 06 17:07:01 2024
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 

@@ -1,6 +1,7 @@
 |main_module
 clk => clk.IN3
-enter_key => enter_key.IN1
+left_button => left_button.IN1
+right_button => ~NO_FANOUT~
 grounds[0] <= sevensegment:ss1.grounds
 grounds[1] <= sevensegment:ss1.grounds
 grounds[2] <= sevensegment:ss1.grounds
@@ -70,7 +71,7 @@ clk => clk1[24].CLK
 clk => clk1[25].CLK
 
 
-|main_module|switchbank:sw1
+|main_module|switchbank:lb_sw1
 clk => data_reg[0].CLK
 clk => data_reg[1].CLK
 clk => data_reg[2].CLK
