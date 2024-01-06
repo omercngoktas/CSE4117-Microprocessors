@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE22F17) Path("E:/github/CSE4117-Microprocessors/Homework - 2/FPGA_talha/output_files/") File("main_module.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE22F17) Path("E:/github/CSE4117-Microprocessors/Homework - 2/FPGA/output_files/") File("main_module.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

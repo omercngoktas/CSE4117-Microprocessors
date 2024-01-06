@@ -103,8 +103,8 @@ always_ff @(posedge clk) //data output port of the cpu
 
 initial 
 	begin
-		ss7_out=16'h3136;
-		switches_in=16'h9113;
+		ss7_out=16'h0001;
+		switches_in=16'h0001;
 		$readmemh("ram.dat", memory);
 	end
 	 
