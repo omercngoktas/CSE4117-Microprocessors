@@ -5,7 +5,7 @@ module bird (
         output logic [15:0] data_out,
         output logic [11:0] address,
         output memwt
-        );
+);
 
 logic [11:0] pc, ir; //program counter, instruction register
 
@@ -130,7 +130,7 @@ always_comb
     endcase
  
  
-assign memwt=(state==ST)||(state==PUSH)||(state==CALL);
+assign memwt = (state==ST) || (state==PUSH) || (state==CALL);
  
 always_comb
     case (state)

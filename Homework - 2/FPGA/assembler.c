@@ -168,17 +168,24 @@ void main()
                 else if (strcmp(token,"sub")==0)
                 {
                     //to be added
+                    // alucode: 001
+                    op1 = strtok(NULL, "\n\t\r "); // dst register
+                    op2 = strtok(NULL, "\n\t\r ");
+                    op3 = strtok(NULL, "\n\t\r ");
+                    chch = (op1[0] - 48) | ((op2[0] - 48) << 6) | ((op3[0] - 48) << 3);
+                    program[counter]= 0x7200+((chch)&0x01ff); 
+                    counter++;
                 }
                 else if (strcmp(token,"and")==0)
                 {
-                    /*//to be added
+                    //to be added
                     // alucode: 010
                     op1 = strtok(NULL, "\n\t\r "); // dst register
                     op2 = strtok(NULL, "\n\t\r ");
                     op3 = strtok(NULL, "\n\t\r ");
                     chch = (op1[0] - 48) | ((op2[0] - 48) << 6) | ((op3[0] - 48) << 3);
                     program[counter]= 0x7400+((chch)&0x01ff); 
-                    counter++;*/
+                    counter++;
                 }
                 else if (strcmp(token,"or")==0)
                 {
@@ -193,6 +200,12 @@ void main()
                 else if (strcmp(token,"xor")==0)
                 {
                     //to be added
+                    op1 = strtok(NULL,"\n\t\r ");    
+                    op2 = strtok(NULL,"\n\t\r ");
+                    op3 = strtok(NULL,"\n\t\r ");
+                    chch = (op1[0]-48)| ((op2[0]-48)<<6)|((op3[0]-48)<<3);  
+                    program[counter]= 0x7800+((chch)&0x01ff); 
+                    counter++; 
                 }
                 else if (strcmp(token,"not")==0)
                 {
@@ -205,6 +218,11 @@ void main()
                 else if (strcmp(token,"mov")==0)
                 {
                     //to be added
+                    op1 = strtok(NULL, "\n\t\r ");
+                    op2 = strtok(NULL, "\n\t\r ");
+                    chch = (op1[0] - 48) | ((op2[0] - 48) << 3);
+                    program[counter] = 0x7e40+((chch)&0x003f);
+                    counter++;
                 }
                 else if (strcmp(token,"inc")==0)
                 {
@@ -215,23 +233,49 @@ void main()
                 }
                 else if (strcmp(token,"dec")==0)
                 {
-                     //to be added
+                    //to be added
+                    op1 = strtok(NULL, "\n\t\r ");
+                    chch = (op1[0]-48)| ((op1[0]-48)<<3);
+                    program[counter]= 0x7ec0+((chch)&0x003f); 
+                    counter++;
                 }
                 else if (strcmp(token,"push")==0)
                 {
                       //to be added
+                      //to be added
+                    op1 = strtok(NULL, "\n\t\r ");
+                    chch = ((op1[0] - 48) << 6);
+                    program[counter] = 0x8000+((chch)&0x01c0);
+                    counter++;
                 }
                 else if (strcmp(token,"pop")==0)
                 {
                       //to be added
+                    //to be added
+                    op1 = strtok(NULL, "\n\t\r ");
+                    chch = ((op1[0] - 48));
+                    program[counter] = 0x9000 + ((chch)&0x0007);
+                    counter++;
                 }
                 else if (strcmp(token,"call")==0)  //-------------- CALL -----------------------------
                 {
                     //to be added
+                    //to be added
+                    op1 = strtok(NULL, "\n\t\r ");
+                    jumptable[noofjumps].location = counter; 
+                    op2 = (char *)malloc(sizeof(op1));   
+                    strcpy(op2, op1);                        
+                    jumptable[noofjumps].name = op2;         
+                    noofjumps++;                             
+                    program[counter] = 0xa000;               
+                    counter++;
                 }
                 else if (strcmp(token,"ret")==0)
                 {
                     //to be added
+                    //to be added
+                    program[counter] = 0xb000;
+                    counter++;
                 }
                 else //------WHAT IS ENCOUNTERED IS NOT AN INSTRUCTION BUT A LABEL. UPDATE THE LABEL TABLE--------
                 {

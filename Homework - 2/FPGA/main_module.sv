@@ -1,15 +1,12 @@
 module main_module (
-		input clk,
-
-		//---input from switchboard
-		input [7:0] switches,   // sol buton         //input from 16-bit switchboard
-		input enter_key,         //sag buton       //enter button
-
-		//---output to seven segment display
-		output logic [3:0] grounds,
-		output logic [6:0] display
+	input clk,
+	/*input left_button,
+	input right_button,*/
+	input enter_key,
+	//---output to seven segment display
+	output logic [3:0] grounds,
+	output logic [6:0] display
 );
-
 
 //====memory map is defined here====
 localparam    
@@ -19,34 +16,36 @@ localparam
 	SWITCHBANK_STATUS=12'h901, 
 	SEVENSEG=12'hb00;
 
-//====memory chip==============
-logic [15:0] memory [0:127]; 
-//=====cpu's input-output pins=====
+//  memory chip
+logic [15:0] memory [0:127];
+ 
+// cpu's input-output pins
 logic [15:0] data_out;
 logic [15:0] data_in;
 logic [11:0] address;
-logic memwt;
+logic memwt; // memory'e bir sey yazacagimiz ya da push-call islemlerinden birisini gerceklestirecegimiz zaman kullaniyoruz
 
 //======ss7 and switchbank=====
-logic [15:0] ss7_out, switch_in;
-
+logic [15:0] ss7_out;
+logic [15:0] switches_in;
+logic [15:0] switch_in;
 logic ackx;
 
 //=====components==================
-sevensegment ss1 (
+sevensegment ss1(
   .din(ss7_out),
   .grounds(grounds),
   .display(display),
   .clk(clk)
 );
 
-switchbank_poll sw1(
+switchbank  sw1(
 	.clk(clk),
-	.switches(switches), // switches'ın türünü düzeltilmiş haliyle belirtin
+	.switches(switches_in),
 	.enter_key(enter_key),
 	.a0(address[0]),
 	.ack(ackx),
-	.data_out(switch_in)
+	.data_out(switch_in) // burada devicedan okunan deger veriliyor statusreg ya da datareg olarak dataout guncellenecek
 );
 
 bird br1(
@@ -57,59 +56,56 @@ bird br1(
 	.memwt(memwt)
 );
 
-
 //====multiplexer for cpu input======
 always_comb
 	begin
 		ackx = 0;
-		if ((BEGINMEM<=address) && (address<=ENDMEM))
+		// burada address'in BEGINMEM ile ENDMEM arasinda olup olmadigi kontrol ediliyor
+		if ((BEGINMEM <= address) && (address <= ENDMEM))
 			begin
-				data_in=memory[address];
+				data_in = memory[address];
 			end
 			
-		else if ((address==SWITCHBANK_STATUS)|| (address==SWITCHBANK_DATA))
+		// address STATUS ya da DATA'ya esit ise (device'in status ya da data adresiyse)
+		else if ((address == SWITCHBANK_STATUS) || (address == SWITCHBANK_DATA))
 			begin
 				ackx = 1;              //with appropriate a0 resets the ready flag    
 				data_in = switch_in;   //a0 will determine if we read data or status
 			end
-			
+
 		else
 			begin
 				data_in=16'hf345; //any number
 			end
 	end
-	
+
 //=====multiplexer for cpu output=========== 
 always_ff @(posedge clk) //data output port of the cpu
 	begin
-		if (memwt)
+		if (memwt) // yazma islemi yapilacaksa
 			begin
-				if ((BEGINMEM<=address) && (address<=ENDMEM))
+				if ((BEGINMEM <= address) && (address <= ENDMEM)) // address memorynin araligindaysa
 					begin
-						memory[address]<=data_out;
-						//ss7_out <= 16'h9ab2;
+						memory[address] <= data_out;
 					end
-					
-				else if (SEVENSEG==address) 
+
+				else if (SWITCHBANK_DATA == address)
 					begin
-							ss7_out<=data_out;
-							  //ss7_out <= 16'h4321;
+						switches_in <= data_out;
+					end
+
+				else if (SEVENSEG == address) // uretilen address sevenseg addressi haliyle data sevensegmente bastirilacak
+					begin
+						ss7_out <= data_out;
 					end
 			end
 	end
 
 initial 
-    begin
-        $readmemh("ram.dat", memory);
-		  for (int i = 0; i < 15; i = i + 1)
-            $display("memory[%0d] = %h", i, memory[i]);
-				
-			for (int i = 0; i < 4; i = i + 1)
-            $display("switches[%0d] = %h", i, switches[i]);
-			$display("switches = %h", switches);
-		  /*ss7_out[3:0] = 4'h1;
-		  ss7_out[7:4] = 4'hE;
-		  ss7_out[11:8] = 4'hA;
-		  ss7_out[15:12] = 4'h7;*/
-    end
+	begin
+		ss7_out=16'h3136;
+		switches_in=16'h9113;
+		$readmemh("ram.dat", memory);
+	end
+	 
 endmodule
