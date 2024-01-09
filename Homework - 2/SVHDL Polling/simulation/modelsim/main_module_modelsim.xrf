@@ -1,10 +1,10 @@
 vendor_name = ModelSim
-source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/FPGA/main_module.sv
-source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/FPGA/sevensegment.sv
-source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/FPGA/output_files/bird.sv
-source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/FPGA/switchbank.sv
-source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/FPGA/db/main_module.cbx.xml
-source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/FPGA/ram.dat
+source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/SVHDL Polling/main_module.sv
+source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/SVHDL Polling/sevensegment.sv
+source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/SVHDL Polling/output_files/bird.sv
+source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/SVHDL Polling/switchbank.sv
+source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/SVHDL Polling/db/main_module.cbx.xml
+source_file = 1, E:/github/CSE4117-Microprocessors/Homework - 2/SVHDL Polling/ram.dat
 design_name = main_module
 instance = comp, \grounds[0]~output , grounds[0]~output, main_module, 1
 instance = comp, \grounds[1]~output , grounds[1]~output, main_module, 1

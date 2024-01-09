@@ -110,7 +110,7 @@ always_comb
 				else if (SWITCHBANK == address)
 					begin
 						ackx = 1;              //with appropriate a0 resets the ready flag    
-						data_in = rb_switch_in;   //a0 will determine if we read data or status
+						data_in = input_data;   //a0 will determine if we read data or status
 					end
 					
 				else
@@ -165,7 +165,7 @@ always_ff @(posedge clk) //data output port of the cpu
 initial 
 	begin
 		switch_interrupt = 1'b0;
-		input_data = 16'h0031;
+		input_data = 16'h0001;
 		ss7_out =16'h3136;
 		$readmemh("ram.dat", memory);
 	end
