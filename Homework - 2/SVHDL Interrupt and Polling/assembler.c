@@ -166,7 +166,6 @@ void main()
                 }
                 else if (strcmp(token,"sub")==0)
                 {
-                    //to be added
                     // alucode: 001
                     op1 = strtok(NULL, "\n\t\r "); // dst register
                     op2 = strtok(NULL, "\n\t\r ");
@@ -177,7 +176,6 @@ void main()
                 }
                 else if (strcmp(token,"and")==0)
                 {
-                    //to be added
                     // alucode: 010
                     op1 = strtok(NULL, "\n\t\r "); // dst register
                     op2 = strtok(NULL, "\n\t\r ");
@@ -188,7 +186,6 @@ void main()
                 }
                 else if (strcmp(token,"or")==0)
                 {
-                    //to be added
                     op1 = strtok(NULL,"\n\t\r ");    
                     op2 = strtok(NULL,"\n\t\r ");
                     op3 = strtok(NULL,"\n\t\r ");
@@ -198,7 +195,6 @@ void main()
                 }
                 else if (strcmp(token,"xor")==0)
                 {
-                    //to be added
                     op1 = strtok(NULL,"\n\t\r ");    
                     op2 = strtok(NULL,"\n\t\r ");
                     op3 = strtok(NULL,"\n\t\r ");
@@ -216,7 +212,6 @@ void main()
                 }
                 else if (strcmp(token,"mov")==0)
                 {
-                    //to be added
                     op1 = strtok(NULL, "\n\t\r ");
                     op2 = strtok(NULL, "\n\t\r ");
                     chch = (op1[0] - 48) | ((op2[0] - 48) << 3);
@@ -232,7 +227,6 @@ void main()
                 }
                 else if (strcmp(token,"dec")==0)
                 {
-                    //to be added
                     op1 = strtok(NULL, "\n\t\r ");
                     chch = (op1[0]-48)| ((op1[0]-48)<<3);
                     program[counter]= 0x7ec0+((chch)&0x00ff); 
@@ -240,7 +234,6 @@ void main()
                 }
                 else if (strcmp(token,"push")==0)
                 {
-                    //to be added
                     op1 = strtok(NULL,"\n\t\r ");
                     chch = ((op1[0]-48)<<6);
                     program[counter]=0x8000+((chch)&0x0700);
@@ -248,7 +241,6 @@ void main()
                 }
                 else if (strcmp(token,"pop")==0)
                 {
-                    //to be added
                     op1 = strtok(NULL,"\n\t\r ");
                     chch = (op1[0]-48);
                     program[counter]=0x9000+((chch)&0x0007);
@@ -256,7 +248,6 @@ void main()
                 }
                 else if (strcmp(token,"call")==0)  //-------------- CALL -----------------------------
                 {
-                    //to be added
                     op1 = strtok(NULL, "\n\t\r ");
                     jumptable[noofjumps].location = counter; 
                     op2 = (char *)malloc(sizeof(op1));   
@@ -268,26 +259,21 @@ void main()
                 }
                 else if (strcmp(token,"ret")==0)
                 {
-                    //to be added
-                    //to be added
                     program[counter] = 0xb000;
                     counter++;
                 }
                 else if (strcmp(token, "sti") == 0)
                 {
-                    //to be added
                     program[counter] = 0xc000;
                     counter++;
                 }
                 else if (strcmp(token, "cli") == 0)
                 {
-                    //to be added
                     program[counter] = 0xd000;
                     counter++;
                 } 
                 else if (strcmp(token, "iret") == 0) 
                 {
-                    //to be added
                     program[counter] = 0xe000;
                     counter++;
                 }

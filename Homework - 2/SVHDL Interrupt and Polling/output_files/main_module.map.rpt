@@ -1,5 +1,5 @@
 Analysis & Synthesis report for main_module
-Tue Jan 09 21:16:20 2024
+Thu Jan 11 03:46:34 2024
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -47,13 +47,13 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jan 09 21:16:20 2024      ;
+; Analysis & Synthesis Status        ; Successful - Thu Jan 11 03:46:34 2024      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; main_module                                ;
 ; Top-level Entity Name              ; main_module                                ;
 ; Family                             ; Cyclone IV E                               ;
 ; Total logic elements               ; 4,245                                      ;
-;     Total combinational functions  ; 2,623                                      ;
+;     Total combinational functions  ; 2,615                                      ;
 ;     Dedicated logic registers      ; 2,269                                      ;
 ; Total registers                    ; 2269                                       ;
 ; Total pins                         ; 14                                         ;
@@ -183,14 +183,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------+
 ; Estimated Total logic elements              ; 4,245     ;
 ;                                             ;           ;
-; Total combinational functions               ; 2623      ;
+; Total combinational functions               ; 2615      ;
 ; Logic element usage by number of LUT inputs ;           ;
 ;     -- 4 input functions                    ; 1806      ;
 ;     -- 3 input functions                    ; 223       ;
-;     -- <=2 input functions                  ; 594       ;
+;     -- <=2 input functions                  ; 586       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 2556      ;
+;     -- normal mode                          ; 2548      ;
 ;     -- arithmetic mode                      ; 67        ;
 ;                                             ;           ;
 ; Total registers                             ; 2269      ;
@@ -201,7 +201,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 2263      ;
-; Total fan-out                               ; 15386     ;
+; Total fan-out                               ; 15378     ;
 ; Average fan-out                             ; 3.13      ;
 +---------------------------------------------+-----------+
 
@@ -211,7 +211,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------+
 ; Compilation Hierarchy Node    ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Library Name ;
 +-------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------+
-; |main_module                  ; 2623 (2089)       ; 2269 (2080)  ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |main_module                          ; work         ;
+; |main_module                  ; 2615 (2081)       ; 2269 (2080)  ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |main_module                          ; work         ;
 ;    |mammal:m1|                ; 495 (495)         ; 161 (161)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_module|mammal:m1                ; work         ;
 ;    |sevensegment:ss1|         ; 35 (35)           ; 22 (22)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_module|sevensegment:ss1         ; work         ;
 ;    |switchbank_int:int_sw1|   ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |main_module|switchbank_int:int_sw1   ; work         ;
@@ -345,7 +345,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Tue Jan 09 21:16:14 2024
+    Info: Processing started: Thu Jan 11 03:46:29 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off main_module -c main_module
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file main_module.sv
@@ -395,9 +395,9 @@ Info (21057): Implemented 4303 device resources after synthesis - the final reso
     Info (21061): Implemented 4289 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 20 warnings
     Info: Peak virtual memory: 4638 megabytes
-    Info: Processing ended: Tue Jan 09 21:16:20 2024
-    Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:05
+    Info: Processing ended: Thu Jan 11 03:46:34 2024
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:06
 
 
 +------------------------------------------+

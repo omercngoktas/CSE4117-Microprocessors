@@ -13,7 +13,7 @@ localparam BEGINMEM = 12'h000;
 localparam ENDMEM = 12'h7ff;
 localparam SWITCHBANK = 12'h900;
 localparam SEVENSEG = 12'hb00;
-localparam LB_SWITCHBANK_STATUS = 12'h901;
+localparam LEFT_BUTTON_STATUS = 12'h901;
 
 //====memory chip==============
 logic [15:0] memory [0:127]; 
@@ -96,12 +96,12 @@ always_comb
 		if (intack == 0)
 			begin
 				ackx = 0;
-				if ( (BEGINMEM <= address) && (address <= ENDMEM) )
+				if ((BEGINMEM <= address) && (address <= ENDMEM))
 					begin
 						data_in = memory[address];
 					end
 				
-				else if (LB_SWITCHBANK_STATUS == address)
+				else if (LEFT_BUTTON_STATUS == address)
 					begin
 						ackx = 1;
 						data_in <= lb_switch_in;
@@ -145,7 +145,7 @@ always_ff @(posedge clk) //data output port of the cpu
 	begin
 		if (memwt)
 			begin
-				if ( (BEGINMEM <= address) && (address <= ENDMEM) )
+				if ((BEGINMEM <= address) && (address <= ENDMEM))
 					begin
 						memory[address] <= data_out;
 					end
@@ -155,7 +155,7 @@ always_ff @(posedge clk) //data output port of the cpu
 						input_data <= data_out;
 					end
 					
-				else if ( SEVENSEG == address )
+				else if (SEVENSEG == address)
 					begin
 						ss7_out <= data_out;
 					end
