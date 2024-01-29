@@ -1,0 +1,99 @@
+module main_module (
+            input clk,
+                        input ps2c,
+                        input ps2d,
+								output logic hsync,
+								output logic vsync,
+								output logic [2:0] rgb,
+								output logic led1,
+								output logic led2,
+								output logic led3,
+								output logic led4,
+								output logic [6:0] display,
+								output logic [3:0] grounds,
+            input pushbutton //may be used as clock
+            );
+
+logic [15:0] data_all;
+
+logic [8:0] keyb_out; 
+logic [3:0] keyout;
+logic ack;
+logic [15:0] x;
+logic [15:0] y;
+//memory map is defined here
+localparam    BEGINMEM=12'h000,
+        ENDMEM=12'h1ff,
+        KEYBOARD=12'h900,
+		  VGAx=12'hc00,
+		  VGAy=12'hc01;
+//  memory chip
+logic [15:0] memory [0:127]; 
+ 
+// cpu's input-output pins
+logic [15:0] data_out;
+logic [15:0] data_in;
+logic [12:0] address;
+logic memwt;
+
+sevensegment sg1 (.clk(clk), .datain(data_all), .display(display), .grounds(grounds));
+keyboard  kb1(.clk(clk),.ps2d(ps2d), .ps2c(ps2c), .dout(keyb_out), .ack(ack));
+
+bird br1 (.clk(clk),.data_in(data_in),.data_out(data_out),.address(address), .memwt(memwt) );
+
+vga_sync vg1 (.clk(clk), .hsync(hsync), .vsync(vsync), .rgb(rgb), .x(x), .y(y));
+
+
+//multiplexer for cpu input
+always_comb
+    if ( (BEGINMEM<=address) && (address<=ENDMEM) )
+        begin
+            data_in=memory[address];
+            ack=0;
+        end
+    else if (address==KEYBOARD+1)
+        begin    
+            data_in=keyb_out;
+            ack=0;
+        end
+    else if (address==KEYBOARD)
+        begin
+            data_in = keyb_out;
+				ack = 1;
+        end
+    else
+        begin
+            data_in=16'h0000; //any number
+            ack=0;
+        end
+
+//multiplexer for cpu output 
+always_ff @(posedge clk) //data output port of the cpu
+    if (memwt)
+		begin
+        if ( (BEGINMEM<=address) && (address<=ENDMEM) )
+            memory[address]<=data_out;
+        else if ( VGAx == address)
+				begin
+					x <= data_out;
+					led2 <= ~led2;
+					end
+		  else if (VGAy == address)
+				begin
+					y <= data_out;
+					//led1 <= ~led1;
+				end
+		end
+
+initial 
+    begin
+        data_all=0;
+		  led4 = 0;
+		  led3 = 0;
+		  led2 = 0;
+		  led1 = 0;
+        ack=0;
+        $readmemh("ram.dat", memory);
+    end
+
+endmodule
